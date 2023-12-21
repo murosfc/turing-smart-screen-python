@@ -14,7 +14,7 @@ static_images:
     HEIGHT: 480
 static_text:
   CPU_MODEL:
-    TEXT: Your CPU model here
+    TEXT: Intel I7 14700K
     X: 50
     Y: 127
     FONT: generale-mono/GeneraleMonoA.ttf
@@ -22,7 +22,7 @@ static_text:
     FONT_COLOR: 255, 239, 8
     BACKGROUND_IMAGE: background.png
   GPU_MODEL:
-    TEXT: Your GPU model here
+    TEXT: NVIDIA RTX 3080
     X: 50
     Y: 215
     FONT: generale-mono/GeneraleMonoA.ttf
@@ -30,7 +30,7 @@ static_text:
     FONT_COLOR: 255, 239, 8
     BACKGROUND_IMAGE: background.png
   RAM_MODEL:
-    TEXT: Your RAM model here
+    TEXT: 32GB DDR5 6000MHz
     X: 50
     Y: 303
     FONT: generale-mono/GeneraleMonoA.ttf
@@ -60,10 +60,10 @@ STATS:
       TEXT:
         SHOW: True
         SHOW_UNIT: True
-        X: 175
+        X: 28
         Y: 80
         FONT: generale-mono/GeneraleMonoA.ttf
-        FONT_SIZE: 40
+        FONT_SIZE: 16
         FONT_COLOR: 2, 216, 243
         BACKGROUND_IMAGE: background.png
       GRAPH:
@@ -93,10 +93,10 @@ STATS:
       TEXT:
         SHOW: True
         SHOW_UNIT: True
-        X: 28
-        Y: 80
+        X: 180
+        Y: 90  
         FONT: generale-mono/GeneraleMonoA.ttf
-        FONT_SIZE: 16
+        FONT_SIZE: 30
         FONT_COLOR: 2, 216, 243
         BACKGROUND_IMAGE: background.png
   GPU:
@@ -116,10 +116,10 @@ STATS:
       TEXT:
         SHOW: True
         SHOW_UNIT: True
-        X: 175
-        Y: 168
+        X: 28
+        Y: 167
         FONT: generale-mono/GeneraleMonoA.ttf
-        FONT_SIZE: 40
+        FONT_SIZE: 16
         FONT_COLOR: 2, 216, 243
         BACKGROUND_IMAGE: background.png
     MEMORY:
@@ -136,10 +136,10 @@ STATS:
       TEXT:
         SHOW: True
         SHOW_UNIT: True
-        X: 28
-        Y: 167
+        X: 180
+        Y: 178      
         FONT: generale-mono/GeneraleMonoA.ttf
-        FONT_SIZE: 16
+        FONT_SIZE: 30
         FONT_COLOR: 2, 216, 243
         BACKGROUND_IMAGE: background.png
   MEMORY:
@@ -177,10 +177,10 @@ STATS:
       PERCENT_TEXT:
         SHOW: True
         SHOW_UNIT: True
-        X: 175
-        Y: 256
+        X: 200
+        Y: 264
         FONT: generale-mono/GeneraleMonoA.ttf
-        FONT_SIZE: 40
+        FONT_SIZE: 30
         FONT_COLOR: 2, 216, 243
         BACKGROUND_IMAGE: background.png
   DISK:
@@ -222,15 +222,15 @@ STATS:
         X: 10
         Y: 455
         FONT: generale-mono/GeneraleMonoA.ttf
-        FONT_SIZE: 18
+        FONT_SIZE: 14
         FONT_COLOR: 255, 239, 8
         BACKGROUND_IMAGE: background.png
     HOUR:
       TEXT:
         SHOW: True
         X: 193
-        Y: 32
+        Y: 30
         FONT: generale-mono/GeneraleMonoA.ttf
-        FONT_SIZE: 15
+        FONT_SIZE: 20
         FONT_COLOR: 255, 239, 8
         BACKGROUND_IMAGE: background.png
