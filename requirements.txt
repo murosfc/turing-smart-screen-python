@@ -1,5 +1,5 @@
 # Python packages requirements
-Pillow~=10.1.0        # Image generation
+Pillow>=10.3.0,<11.0  # Image generation (10.1 falha no Python 3.13)
 pyserial~=3.5         # Serial link to communicate with the display
 PyYAML~=6.0.1         # For themes files
 psutil~=5.9.6         # CPU / disk / network metrics
@@ -10,7 +10,7 @@ sv-ttk~=2.5.5         # Tk Sun Valley theme for configuration editor
 
 # Efficient image serialization
 numpy~=1.24.4; python_version < "3.9"   # For Python 3.8 max.
-numpy~=1.26.0; python_version >= "3.9"  # For Python 3.9+
+numpy>=2.0.0,<3; python_version >= "3.9"  # Wheels para Python 3.13
 
 # For Nvidia GPU on all platforms
 GPUtil~=1.4.0; python_version < "3.12"

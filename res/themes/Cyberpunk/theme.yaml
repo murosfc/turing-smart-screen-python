@@ -22,7 +22,7 @@ static_text:
     FONT_COLOR: 255, 239, 8
     BACKGROUND_IMAGE: background.png
   GPU_MODEL:
-    TEXT: NVIDIA RTX 3080
+    TEXT: AMD RX 9070XT
     X: 50
     Y: 215
     FONT: generale-mono/GeneraleMonoA.ttf
@@ -94,7 +94,7 @@ STATS:
         SHOW: True
         SHOW_UNIT: True
         X: 180
-        Y: 90  
+        Y: 90
         FONT: generale-mono/GeneraleMonoA.ttf
         FONT_SIZE: 30
         FONT_COLOR: 2, 216, 243
@@ -137,7 +137,7 @@ STATS:
         SHOW: True
         SHOW_UNIT: True
         X: 180
-        Y: 178      
+        Y: 178
         FONT: generale-mono/GeneraleMonoA.ttf
         FONT_SIZE: 30
         FONT_COLOR: 2, 216, 243

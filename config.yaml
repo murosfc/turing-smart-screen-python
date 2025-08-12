@@ -22,7 +22,7 @@ config:
   # Linux/MacOS interfaces are named "eth0", "wlan0", "wlp1s0", "enp2s0"...
   # For Windows use the interfaces pretty name: "Ethernet 2", "Wi-Fi", ...
   # Leave the fields empty if the card does not exist on your setup
-  ETH: Ethernet         # Ethernet Card
+  ETH: Ethernet # Ethernet Card
   WLO: Wi-Fi # Wi-Fi Card
 
 display:
