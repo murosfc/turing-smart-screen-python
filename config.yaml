@@ -1,31 +1,31 @@
----
 config:
   # Configuration values to set up basic communication
   # Set your COM port e.g. COM3 for Windows, /dev/ttyACM0 for Linux...
   # Use AUTO for COM port auto-discovery (may not work on every setup)
   # COM_PORT: "/dev/ttyACM0"
   # COM_PORT: "COM3"
-  COM_PORT: "AUTO"
+  COM_PORT: COM3
 
   # Theme to use (located in res/themes)
   # Use the name of the folder as value
   # Choose a theme made for your screen size (see DISPLAY_SIZE inside theme.yaml)
-  THEME: 3.5inchTheme2
+  THEME: Cyberpunk
 
   # Hardware sensors reading
   # Choose the appropriate method for reading your hardware sensors:
   # - PYTHON         use Python libraries (psutils, GPUtil...) to read hardware sensors (supports all OS but not all HW)
   # - LHM            use LibreHardwareMonitor library to read hardware sensors (Windows only - NEEDS ADMIN RIGHTS)
+  # - HYBRID         use LibreHardwareMonitor for GPU and psutil for CPU (Windows only - NEEDS ADMIN RIGHTS)
   # - STUB / STATIC  use random/static data instead of real hardware sensors
   # - AUTO           use the best method based on your OS: Windows OS will use LHM, other OS will use Python libraries
-  HW_SENSORS: AUTO
+  HW_SENSORS: HYBRID
 
   # Network interfaces
   # Linux/MacOS interfaces are named "eth0", "wlan0", "wlp1s0", "enp2s0"...
   # For Windows use the interfaces pretty name: "Ethernet 2", "Wi-Fi", ...
   # Leave the fields empty if the card does not exist on your setup
-  ETH: "" # Ethernet Card
-  WLO: "" # Wi-Fi Card
+  ETH: Ethernet # Ethernet Card
+  WLO: Wi-Fi # Wi-Fi Card
 
   # CPU fan
   # For Linux/MacOS platforms, the CPU fan is amongst all fan sensors gathered from the motherboard chipset
@@ -36,6 +36,20 @@ config:
 
   # Address used for ping sensor. Can be internal/external IP (e.g. 8.8.8.8 or 192.168.0.1) or hostname (google.com)
   PING: 8.8.8.8
+
+  # Disk mount point to monitor
+  # For Windows: C:\, D:\, E:\, etc.
+  # For Linux/MacOS: /, /home, /mnt/data, etc.
+  DISK_MOUNT_POINT: C:\
+
+  # Alternative CPU temperature source (when CPU temp is not available)
+  # Options: GPU_CORE, GPU_MEMORY, GPU_HOTSPOT, MOTHERBOARD, SYSTEM
+  # GPU_CORE: Uses GPU core temperature (recommended for most cases)
+  # GPU_MEMORY: Uses GPU memory temperature
+  # GPU_HOTSPOT: Uses GPU hot spot temperature (highest GPU temp)
+  # MOTHERBOARD: Uses motherboard sensor temperature
+  # SYSTEM: Average of all available temperatures
+  CPU_TEMP_ALTERNATIVE: GPU_HOTSPOT
 
   # Weather data with OpenWeatherMap API. Only useful if you want to use a theme that displays it
 
@@ -58,17 +72,17 @@ display:
   # - D    for Kipye Qiye Smart Display 3.5"
   # - SIMU for simulated display (image written in screencap.png). Width & height will be detected from the theme
   # To identify your smart screen: https://github.com/mathoudebine/turing-smart-screen-python/wiki/Hardware-revisions
-  REVISION: A
+  REVISION: B
 
   # Display Brightness
   # Set this as the desired %, 0 being completely dark and 100 being max brightness
   # Warning: revision A display can get hot at high brightness!
-  BRIGHTNESS: 20
+  BRIGHTNESS: 70
 
   # Display reverse: true/false
   # Set to true to reverse display orientation (landscape <-> reverse landscape, portrait <-> reverse portrait)
   # Note: Display basic orientation (portrait or landscape) is defined by the theme you have selected
-  DISPLAY_REVERSE: false
+  DISPLAY_REVERSE: true
 
   # Reset display on startup: true/false
   # By default, this program resets the display on startup, in case it is in a degraded state from previous runs.

@@ -455,21 +455,27 @@ class Disk(sensors.Disk):
     @staticmethod
     def disk_usage_percent() -> float:
         try:
-            return psutil.disk_usage("/").percent
+            from library import config
+            disk_mount = config.CONFIG_DATA["config"].get("DISK_MOUNT_POINT", "/")
+            return psutil.disk_usage(disk_mount).percent
         except:
             return math.nan
 
     @staticmethod
     def disk_used() -> int:  # In bytes
         try:
-            return psutil.disk_usage("/").used
+            from library import config
+            disk_mount = config.CONFIG_DATA["config"].get("DISK_MOUNT_POINT", "/")
+            return psutil.disk_usage(disk_mount).used
         except:
             return -1
 
     @staticmethod
     def disk_free() -> int:  # In bytes
         try:
-            return psutil.disk_usage("/").free
+            from library import config
+            disk_mount = config.CONFIG_DATA["config"].get("DISK_MOUNT_POINT", "/")
+            return psutil.disk_usage(disk_mount).free
         except:
             return -1
 

@@ -73,6 +73,13 @@ elif HW_SENSORS == "AUTO":
         import library.sensors.sensors_librehardwaremonitor as sensors
     else:
         import library.sensors.sensors_python as sensors
+elif HW_SENSORS == "HYBRID":
+    if platform.system() == 'Windows':
+        logger.info("Using hybrid sensors: LHM for GPU, psutil for CPU")
+        import library.sensors.sensors_hybrid_windows as sensors
+    else:
+        logger.warning("HYBRID mode only works on Windows, using Python sensors instead")
+        import library.sensors.sensors_python as sensors
 else:
     logger.error("Unsupported HW_SENSORS value in config.yaml")
     try:

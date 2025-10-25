@@ -451,15 +451,21 @@ class Memory(sensors.Memory):
 class Disk(sensors.Disk):
     @staticmethod
     def disk_usage_percent() -> float:
-        return psutil.disk_usage("/").percent
+        from library import config
+        disk_mount = config.CONFIG_DATA["config"].get("DISK_MOUNT_POINT", "/")
+        return psutil.disk_usage(disk_mount).percent
 
     @staticmethod
     def disk_used() -> int:  # In bytes
-        return psutil.disk_usage("/").used
+        from library import config
+        disk_mount = config.CONFIG_DATA["config"].get("DISK_MOUNT_POINT", "/")
+        return psutil.disk_usage(disk_mount).used
 
     @staticmethod
     def disk_free() -> int:  # In bytes
-        return psutil.disk_usage("/").free
+        from library import config
+        disk_mount = config.CONFIG_DATA["config"].get("DISK_MOUNT_POINT", "/")
+        return psutil.disk_usage(disk_mount).free
 
 
 class Net(sensors.Net):
