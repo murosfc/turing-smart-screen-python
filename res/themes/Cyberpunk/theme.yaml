@@ -14,7 +14,7 @@ static_images:
     HEIGHT: 480
 static_text:
   CPU_MODEL:
-    TEXT: Intel I7 14700K
+    TEXT: AMD Ryzen 7 9800X3D
     X: 50
     Y: 127
     FONT: generale-mono/GeneraleMonoA.ttf

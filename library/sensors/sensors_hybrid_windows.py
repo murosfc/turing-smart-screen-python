@@ -66,17 +66,6 @@ class Cpu(sensors.Cpu):
         return Cpu._lhm_freq_works
     
     @staticmethod
-    def _check_lhm_temperature():
-        """Check once if LHM can read CPU temperature"""
-        if Cpu._lhm_temp_works is None:
-            import math
-            temp = sensors_lhm.Cpu.temperature()
-            Cpu._lhm_temp_works = not math.isnan(temp)
-            if not Cpu._lhm_temp_works:
-                logger.info("CPU Temperature: Using psutil (LHM not available for this CPU)")
-        return Cpu._lhm_temp_works
-    
-    @staticmethod
     def percentage(interval: float) -> float:
         # Use LHM for CPU percentage (more accurate)
         return sensors_lhm.Cpu.percentage(interval)
@@ -104,25 +93,35 @@ class Cpu(sensors.Cpu):
     
     @staticmethod
     def temperature() -> float:
-        # Use cached detection to avoid repeated checks
-        if Cpu._check_lhm_temperature():
-            return sensors_lhm.Cpu.temperature()
-        else:
-            # Try psutil first
-            temp_psutil = sensors_python.Cpu.temperature()
-            import math
-            if not math.isnan(temp_psutil):
-                return temp_psutil
-            
-            # Fallback: Use alternative temperature source from config
-            try:
-                from library import config
-                from library.sensors.alternative_temp import get_alternative_temperature
-                
-                alt_source = config.CONFIG_DATA["config"].get("CPU_TEMP_ALTERNATIVE", "GPU_CORE")
-                return get_alternative_temperature(alt_source)
-            except:
-                return math.nan
+        import math
+        # Always try LHM first: CPU temperature sensors (e.g. AMD "Core (Tctl/Tdie)") may return no value
+        # on the first readings, so a failed first read must not disable LHM permanently
+        temp_lhm = sensors_lhm.Cpu.temperature()
+        if not math.isnan(temp_lhm):
+            if Cpu._lhm_temp_works is not True:
+                Cpu._lhm_temp_works = True
+                logger.info("CPU Temperature: Using LibreHardwareMonitor")
+            return temp_lhm
+
+        # Try psutil
+        temp_psutil = sensors_python.Cpu.temperature()
+        if not math.isnan(temp_psutil):
+            return temp_psutil
+
+        if Cpu._lhm_temp_works is None:
+            Cpu._lhm_temp_works = False
+            logger.warning("CPU Temperature: not readable by LHM (check that PawnIO driver is installed and "
+                           "the program runs as administrator), using CPU_TEMP_ALTERNATIVE source")
+
+        # Fallback: Use alternative temperature source from config
+        try:
+            from library import config
+            from library.sensors.alternative_temp import get_alternative_temperature
+
+            alt_source = config.CONFIG_DATA["config"].get("CPU_TEMP_ALTERNATIVE", "GPU_CORE")
+            return get_alternative_temperature(alt_source)
+        except:
+            return math.nan
     
     @staticmethod
     def fan_percent(fan_name: str = None) -> float:

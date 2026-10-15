@@ -231,6 +231,12 @@ class Cpu(sensors.Cpu):
                 if sensor.SensorType == Hardware.SensorType.Temperature and str(sensor.Name).startswith(
                         "CPU Package") and sensor.Value is not None:
                     return float(sensor.Value)
+            # AMD Ryzen CPUs expose "Core (Tctl/Tdie)" / "CCDs Max (Tdie)" instead of per-core temperatures
+            for sensor_name in ("Core (Tctl/Tdie)", "Core (Tdie)", "CCDs Max (Tdie)", "Core (Tctl)"):
+                for sensor in cpu.Sensors:
+                    if sensor.SensorType == Hardware.SensorType.Temperature and str(
+                            sensor.Name) == sensor_name and sensor.Value is not None:
+                        return float(sensor.Value)
             # Otherwise any sensor named "Core..." will be used
             for sensor in cpu.Sensors:
                 if sensor.SensorType == Hardware.SensorType.Temperature and str(sensor.Name).startswith(
