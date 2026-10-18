@@ -1,0 +1,227 @@
+---
+author: "@xlipxlip"
+
+display:
+  DISPLAY_SIZE: 3.5"
+  DISPLAY_ORIENTATION: portrait
+  DISPLAY_RGB_LED: 255, 43, 214
+
+static_images:
+  BACKGROUND:
+    PATH: background.png
+    X: 0
+    Y: 0
+    WIDTH: 320
+    HEIGHT: 480
+static_text:
+  CPU_MODEL:
+    TEXT: AMD Ryzen 7 9800X3D
+    X: 66
+    Y: 68
+    FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+    FONT_SIZE: 10
+    FONT_COLOR: 160, 176, 208
+    BACKGROUND_IMAGE: background.png
+  GPU_MODEL:
+    TEXT: AMD RX 9070XT
+    X: 66
+    Y: 172
+    FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+    FONT_SIZE: 10
+    FONT_COLOR: 160, 176, 208
+    BACKGROUND_IMAGE: background.png
+  RAM_MODEL:
+    TEXT: 32GB DDR5 6000MHz
+    X: 66
+    Y: 276
+    FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+    FONT_SIZE: 10
+    FONT_COLOR: 160, 176, 208
+    BACKGROUND_IMAGE: background.png
+STATS:
+  CPU:
+    PERCENTAGE:
+      INTERVAL: 1
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 18
+        Y: 104
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 0, 240, 255
+        BACKGROUND_IMAGE: background.png
+      GRAPH:
+        SHOW: True
+        X: 18
+        Y: 130
+        WIDTH: 160
+        HEIGHT: 10
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 0, 240, 255
+        BAR_OUTLINE: False
+        BACKGROUND_IMAGE: background.png
+    FREQUENCY:
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 100
+        Y: 104
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 217, 247, 255
+        BACKGROUND_IMAGE: background.png
+    TEMPERATURE:
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 302
+        Y: 86
+        ANCHOR: rt
+        FONT: geforce/GeForce-Bold.ttf
+        FONT_SIZE: 38
+        FONT_COLOR: 0, 240, 255
+        BACKGROUND_IMAGE: background.png
+  GPU:
+    INTERVAL: 1
+    PERCENTAGE:
+      GRAPH:
+        SHOW: True
+        X: 18
+        Y: 234
+        WIDTH: 160
+        HEIGHT: 10
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 255, 43, 214
+        BAR_OUTLINE: False
+        BACKGROUND_IMAGE: background.png
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 18
+        Y: 208
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 255, 43, 214
+        BACKGROUND_IMAGE: background.png
+    MEMORY:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 100
+        Y: 208
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 217, 247, 255
+        BACKGROUND_IMAGE: background.png
+    TEMPERATURE:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 302
+        Y: 190
+        ANCHOR: rt
+        FONT: geforce/GeForce-Bold.ttf
+        FONT_SIZE: 38
+        FONT_COLOR: 255, 43, 214
+        BACKGROUND_IMAGE: background.png
+  MEMORY:
+    INTERVAL: 5
+    VIRTUAL:
+      GRAPH:
+        SHOW: True
+        X: 18
+        Y: 338
+        WIDTH: 160
+        HEIGHT: 10
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 252, 238, 10
+        BAR_OUTLINE: False
+        BACKGROUND_IMAGE: background.png
+      USED:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 18
+        Y: 312
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 252, 238, 10
+        BACKGROUND_IMAGE: background.png
+      FREE:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 100
+        Y: 312
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 217, 247, 255
+        BACKGROUND_IMAGE: background.png
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 302
+        Y: 294
+        ANCHOR: rt
+        FONT: geforce/GeForce-Bold.ttf
+        FONT_SIZE: 38
+        FONT_COLOR: 252, 238, 10
+        BACKGROUND_IMAGE: background.png
+  DISK:
+    INTERVAL: 10
+    USED:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 18
+        Y: 416
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 18
+        FONT_COLOR: 61, 255, 154
+        BACKGROUND_IMAGE: background.png
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 302
+        Y: 398
+        ANCHOR: rt
+        FONT: geforce/GeForce-Bold.ttf
+        FONT_SIZE: 38
+        FONT_COLOR: 61, 255, 154
+        BACKGROUND_IMAGE: background.png
+    FREE:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 100
+        Y: 416
+        FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
+        FONT_SIZE: 18
+        FONT_COLOR: 217, 247, 255
+        BACKGROUND_IMAGE: background.png
+  DATE:
+    INTERVAL: 1
+    DAY:
+      TEXT:
+        SHOW: True
+        X: 308
+        Y: 34
+        ANCHOR: rt
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 10
+        FONT_COLOR: 252, 238, 10
+        BACKGROUND_IMAGE: background.png
+    HOUR:
+      TEXT:
+        SHOW: True
+        X: 308
+        Y: 8
+        ANCHOR: rt
+        FONT: geforce/GeForce-Bold.ttf
+        FONT_SIZE: 20
+        FONT_COLOR: 0, 240, 255
+        BACKGROUND_IMAGE: background.png
