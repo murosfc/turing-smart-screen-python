@@ -112,6 +112,7 @@ STATS:
       TEXT:
         SHOW: True
         SHOW_UNIT: True
+        UNIT: GB
         X: 100
         Y: 208
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
@@ -146,6 +147,7 @@ STATS:
       USED:
         SHOW: True
         SHOW_UNIT: True
+        UNIT: GB
         X: 18
         Y: 312
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
@@ -155,6 +157,7 @@ STATS:
       FREE:
         SHOW: True
         SHOW_UNIT: True
+        UNIT: GB
         X: 100
         Y: 312
         FONT: jetbrains-mono/JetBrainsMono-Bold.ttf
