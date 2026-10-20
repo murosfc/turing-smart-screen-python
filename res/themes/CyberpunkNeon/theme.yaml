@@ -165,6 +165,9 @@ STATS:
         FONT_COLOR: 217, 247, 255
         BACKGROUND_IMAGE: background.png
       PERCENT_TEXT:
+        SHOW: False
+    TEMPERATURE:
+      TEXT:
         SHOW: True
         SHOW_UNIT: True
         X: 302

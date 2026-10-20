@@ -631,6 +631,15 @@ class Memory:
         display_themed_memory_value(memory_stats_theme_data['VIRTUAL']['TOTAL'],
                                     (sensors.Memory.virtual_free() + sensors.Memory.virtual_used()) / 1024 ** 2)
 
+        memory_temp_text_data = memory_stats_theme_data['TEMPERATURE']['TEXT']
+        if memory_temp_text_data['SHOW']:
+            temperature = sensors.Memory.temperature()
+            if math.isnan(temperature):
+                logger.warning("Your RAM temperature is not supported yet")
+                memory_temp_text_data['SHOW'] = False
+            else:
+                display_themed_temperature_value(memory_temp_text_data, temperature)
+
 
 class Disk:
     last_values_disk_usage = []

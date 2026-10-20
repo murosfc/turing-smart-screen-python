@@ -146,6 +146,9 @@ STATS:
         SHOW: False
       PERCENT_TEXT:
         SHOW: False
+    TEMPERATURE:
+      TEXT:
+        SHOW: False
   DISK:
     INTERVAL: 0
     USED:

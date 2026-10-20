@@ -455,6 +455,21 @@ class Memory(sensors.Memory):
 
         return 0
 
+    @staticmethod
+    def temperature() -> float:
+        # Each memory module with a thermal sensor (e.g. DDR5) is a separate hardware with a "DIMM #x" sensor:
+        # the hottest module temperature will be used
+        temperatures = []
+        for hardware in handle.Hardware:
+            if hardware.HardwareType == Hardware.HardwareType.Memory:
+                hardware.Update()
+                for sensor in hardware.Sensors:
+                    if sensor.SensorType == Hardware.SensorType.Temperature and str(sensor.Name).startswith(
+                            "DIMM #") and sensor.Value is not None:
+                        temperatures.append(float(sensor.Value))
+
+        return max(temperatures) if temperatures else math.nan
+
 
 # NOTE: all disk data are fetched from psutil Python library, because LHM does not have it.
 # This is because LHM is a hardware-oriented library, whereas used/free/total space is for partitions, not disks

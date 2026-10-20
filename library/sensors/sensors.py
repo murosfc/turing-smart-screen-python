@@ -21,6 +21,7 @@
 # This file defines all supported hardware in virtual classes and their abstract methods to access sensors
 # To be overriden by child sensors classes
 
+import math
 from abc import ABC, abstractmethod
 from typing import Tuple
 
@@ -100,6 +101,11 @@ class Memory(ABC):
     @abstractmethod
     def virtual_free() -> int:  # In bytes
         pass
+
+    @staticmethod
+    def temperature() -> float:
+        # RAM temperature is not available on most sensor implementations
+        return math.nan
 
 
 class Disk(ABC):

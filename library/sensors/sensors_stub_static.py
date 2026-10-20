@@ -106,6 +106,10 @@ class Memory(sensors.Memory):
     def virtual_free() -> int:  # In bytes
         return int(MEMORY_TOTAL_SIZE_GB / 100 * (100 - PERCENTAGE_SENSOR_VALUE)) * 1000000000
 
+    @staticmethod
+    def temperature() -> float:
+        return TEMPERATURE_SENSOR_VALUE
+
 
 class Disk(sensors.Disk):
     @staticmethod

@@ -92,6 +92,10 @@ class Memory(sensors.Memory):
     def virtual_free() -> int:  # In bytes
         return random.randint(300000000, 16000000000)
 
+    @staticmethod
+    def temperature() -> float:
+        return random.uniform(30, 90)
+
 
 class Disk(sensors.Disk):
     @staticmethod
